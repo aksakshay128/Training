@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("ID : ");
+            int UserID=int.Parse(Console.ReadLine());
+            Console.WriteLine("Password : ");
+            string Password = Console.ReadLine();
+	    if(UserID==1234 && Password=="pass"){
+		Console.WriteLine("Logged in");
+	    }
+	    else{
+		Console.WriteLine("Login Fail");
+	    }
+            Console.ReadLine();
+        }
+    }
+}

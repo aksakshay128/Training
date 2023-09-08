@@ -1,0 +1,77 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Threading;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    { 
+        class FileLogger
+        {
+            public void LogError(string message)
+            {
+                StreamWriter streamWriter = new StreamWriter(@"C:\Users\akakshay\Desktop\training\c#\applogsDEMO\ApplicationLogs.txt", true);
+
+                streamWriter.WriteLine("[ERROR] : {0},  DateTime : {1}", message, DateTime.Now.ToString());
+
+                streamWriter.Close();
+            }
+
+            public void LogInfo(string message)
+            {
+                StreamWriter streamWriter = new StreamWriter(@"C:\Users\akakshay\Desktop\training\c#\applogsDEMO\ApplicationLogs.txt", true);
+
+                streamWriter.WriteLine("[INFO] : {0},  DateTime : {1}", message, DateTime.Now.ToString());
+
+                streamWriter.Close();
+            }
+
+            public void LogWarning(string message)
+            {
+                StreamWriter streamWriter = new StreamWriter(@"C:\Users\akakshay\Desktop\training\c#\applogsDEMO\ApplicationLogs.txt", true);
+
+                streamWriter.WriteLine("[WARNING] : {0},  DateTime : {1}", message, DateTime.Now.ToString());
+
+                streamWriter.Close();
+            }
+        }
+        static void Main(string[] args)
+        {
+            FileLogger logger = new FileLogger();
+
+            int x, y, z = 0;
+            try
+            {
+                Console.WriteLine("Enter value for X: ");
+                x = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Enter value for Y: ");
+                y = int.Parse(Console.ReadLine());
+
+                z = x / y;
+
+                System.Console.WriteLine("Result  :  " + z);
+                logger.LogInfo("Process completed successfully");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception Raised. Reason : " + e.Message);
+                logger.LogError("Exception Raised. Reason : " + e.Message);
+            }
+            StreamReader streamReader = new StreamReader(@"C:\Users\akakshay\Desktop\training\c#\applogsDEMO\ApplicationLogs.txt", true);
+            int count = 0;
+            while (!streamReader.EndOfStream)
+            {
+                Console.WriteLine(streamReader.ReadLine());
+                count++;
+            }
+            Console.WriteLine(" the file has {0} lines", count);
+            Console.ReadLine();
+        }
+
+    }
+}

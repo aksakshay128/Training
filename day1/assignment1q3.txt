@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Product ID : ");
+            int id=int.Parse(Console.ReadLine());
+            Console.WriteLine("Product Name : ");
+            string name = Console.ReadLine();
+            Console.WriteLine("Product Price: ");
+            int price = int.Parse(Console.ReadLine());
+            Console.WriteLine("Product quantity : ");
+            int quantity = int.Parse(Console.ReadLine());
+            Console.WriteLine("Total Amount : ");
+            int total_Amount = int.Parse(Console.ReadLine());
+            
+            Console.WriteLine("Final Amount : ");
+            if (quantity > 50)
+            {
+                int x = (int)(total_Amount * 0.3);
+                Console.WriteLine("Discount Amount : "+x);
+                Console.WriteLine("Final Amount = "+ (total_Amount - x)  );
+            }
+            else if (quantity > 30)
+            {
+                int x = (int)(total_Amount * 0.2);
+                Console.WriteLine("Discount Amount : "+x);
+                Console.WriteLine("Final Amount = " + (total_Amount -x));
+            }
+            else if( quantity > 10)
+            {
+                int x = (int)(total_Amount * 0.1);
+                Console.WriteLine("Discount Amount : "+ x);
+                Console.WriteLine("Final Amount = " + (total_Amount - x));
+            }
+            else
+            {
+                Console.WriteLine("Final Amount = " + total_Amount);
+            }
+            Console.ReadLine();
+        }
+    }
+}

@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Threading;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                System.Console.WriteLine(" hello, I am in TRY block ");
+            }
+            catch (nullpointerexception e)
+            {
+                Console.WriteLine("Hi, I am in exception 1" + e.Message);
+            }
+            catch (IndexOutOfRangeException e)
+            {
+                Console.WriteLine("Hi, I am in exception 2" + e.Message);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Hi, I am in exception 3" + e.Message);
+            }
+
+
+
+            Console.ReadLine();
+        }
+
+    }
+}

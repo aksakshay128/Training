@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Threading;
+
+namespace ConsoleApp2
+{
+    class product
+    {
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+        public int UnitPrice { get; set; }
+        public int Quantity { get; set; }
+        public string ToString()
+        {
+            string str = string.Format("'{0}' is ProductId '{1}' is  ProductName '{2}' is UnitPrice '{3} is Quantity", ProductId, ProductName, UnitPrice, Quantity);
+            return str;
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<product> list = new List<product>();
+            for (int i = 1; i < 6; i++)
+            {
+                product proTemp = new product();
+                Console.WriteLine("Enter {0} details", i);
+                Console.WriteLine("enter Product ID : ");
+                proTemp.ProductId = int.Parse(Console.ReadLine());
+                Console.WriteLine("enter Product Name : ");
+                proTemp.ProductName = Console.ReadLine();
+                Console.WriteLine("enter UnitPric : ");
+                proTemp.UnitPrice = int.Parse(Console.ReadLine());
+                Console.WriteLine("enter Quantity : ");
+                proTemp.Quantity =int.Parse(Console.ReadLine());
+                list.Add(proTemp);
+            }
+
+
+            foreach (product p in list)
+            {
+                Console.WriteLine(p.ToString());
+            }
+            Console.WriteLine("Enter product Name : ");
+            String search = Console.ReadLine();
+            foreach (product p in list)
+            {
+                if (p.ProductName == search)
+                {
+                    list.Remove(p);
+                    break;
+                }
+            }
+            Console.WriteLine("After Deleting");
+            foreach (product p in list)
+            {
+                Console.WriteLine(p.ToString());
+            }
+            Console.ReadLine();
+        }
+
+    }
+}
