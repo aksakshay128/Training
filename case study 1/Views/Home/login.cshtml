@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Login Page";
+}
+
+@{
+    <div >
+    <h2> Login Here</h2>
+        <form method="post" action="Login">
+        user name : <input type="text" name="uid" /><br>
+        password : <input type="password" name="pwd"/><br>
+        <input type="submit" value="login"/>
+        <h6> @ViewBag.Message</h6>
+        </form>
+    </div>
+}
